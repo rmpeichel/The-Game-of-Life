@@ -5,7 +5,7 @@ public class Cards {
     String title = "";
 
     public enum CardType {
-        CAREER, COLLEGE_DEGREE_REQUIRED
+        CAREER, COLLEGE_DEGREE_REQUIRED, HOUSE
     };
     CardType cardType;
 
