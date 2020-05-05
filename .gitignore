@@ -1,1 +1,15 @@
 .idea/
+/target/classes/components/Board.class
+/target/classes/components/Cards$CardType.class
+/target/classes/components/Cards.class
+/target/classes/components/CareerCards$1.class
+/target/classes/components/CareerCards$CareerType.class
+/target/classes/components/CareerCards.class
+/target/classes/components/HouseCards$1.class
+/target/classes/components/HouseCards$HouseType.class
+/target/classes/components/HouseCards.class
+/target/classes/components/LifeTile.class
+/target/classes/game/GameOfLife.class
+/target/classes/game/playGame.class
+/target/classes/players/Player.class
+/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst

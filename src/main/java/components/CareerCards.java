@@ -161,7 +161,6 @@ public class CareerCards extends Cards {
 
     //miscalleneous
     public static final String STRAWBERRY_PICKER = "STRAWBERRY PICKER";
-    public static final String HOMEMAKER = "HOMEWORKER";
     public static final String NANNY = "NANNY";
     public static final String CLOWN = "CLOWN";
     public static final String WEDDING_EVENT_PLANNER = "WEDDING AND EVENT PLANNER";
@@ -181,8 +180,6 @@ public class CareerCards extends Cards {
     public static final String MUSIC_STORE_CLERK = "MUSIC_STORE_CLERK";
     public static final String VOICE_AND_MUSIC_TEACHER = "VOICE AND MUSIC TEACHER";
     public static final String WEDDING_SINGER = "WEDDING SINGER";
-    public static final String INDY_ROCK_BAND_MEMBER = "INDY ROCK BAND MEMBER";
-    public static final String ROCK_BAND_WITH_ONE_RECORD = "ROCK BAND WITH ONE RECORD";
     public static final String SOLO_ARTIST = "SOLO ARTIST";
     public static final String SUPERSTAR = "SUPERSTAR";
 
@@ -249,10 +246,10 @@ public class CareerCards extends Cards {
         TYPE_NEWSPAPER_INTERN, TYPE_AD_OBITUARY_WRITER, TYPE_REPORTER, TYPE_FEATURE_WRITER, TYPE_MANAGING_EDITOR, TYPE_NEWSPAPER_MAGNATE,
         TYPE_NONFICTION_BEST_SELLING_AUTHOR,
         TYPE_PRIVATE, TYPE_SERGEANT, TYPE_LIEUTENANT, TYPE_CAPTAIN, TYPE_MAJOR, TYPE_COLONEL, TYPE_CHIEF_GENERAL,
-        TYPE_STRAWBERRY_PICKER, TYPE_HOMEMAKER, TYPE_NANNY, TYPE_CLOWN, TYPE_WEDDING_EVENT_PLANNER, TYPE_INTERNATIONL_TRANSLATOR, TYPE_TELEVISION_MINISTER,
+        TYPE_STRAWBERRY_PICKER, TYPE_NANNY, TYPE_CLOWN, TYPE_WEDDING_EVENT_PLANNER, TYPE_INTERNATIONL_TRANSLATOR, TYPE_TELEVISION_MINISTER,
         TYPE_SALESCLERK, TYPE_PERSONAL_SHOPPER, TYPE_SALES_MANAGER, TYPE_FASHION_STORE_BUYER, TYPE_FASHION_MAGAZINE_CRITIC,
         TYPE_FASHION_DESIGNER, TYPE_FASHION_DESIGN_SUPERSTAR,
-        TYPE_MUSIC_STORE_CLERK, TYPE_VOICE_AND_MUSIC_TEACHER, TYPE_WEDDING_SINGER, TYPE_INDY_ROCK_BAND, TYPE_ROCK_BAND_WITH_ONE_RECORD,
+        TYPE_MUSIC_STORE_CLERK, TYPE_VOICE_AND_MUSIC_TEACHER, TYPE_WEDDING_SINGER,
         TYPE_SOLO_ARTIST, TYPE_SUPERSTAR,
         TYPE_LAB_ASSISTANT, TYPE_ARTIFACT_RESEARCHER, TYPE_SAFARI_GUIDE, TYPE_ARCHEOLOGY_TEACHER_ASSISTANT, TYPE_ARCHEOLOGY_PROFESSOR, TYPE_ARCHEOLOGIST,
         TYPE_INTERNATIONAL_TREASURE_HUNTER,
@@ -267,7 +264,7 @@ public class CareerCards extends Cards {
     private int payTaxes = 0;
     private CareerType careerType;
 
-    public CareerCards(CardType cardType, CareerType careerType, int baseSalary, int maxSalary, int payTaxes) {
+    public CareerCards(CardType cardType, CareerType careerType, int baseSalary, int maxSalary) {
 
         this.cardType = cardType;
         this.careerType = careerType;
@@ -755,10 +752,6 @@ public class CareerCards extends Cards {
                 title = TITLE_CAREER;
                 description = STRAWBERRY_PICKER;
                 break;
-            case TYPE_HOMEMAKER:
-                title = TITLE_CAREER;
-                description = HOMEMAKER;
-                break;
             case TYPE_NANNY:
                 title = TITLE_CAREER;
                 description = NANNY;
@@ -804,7 +797,7 @@ public class CareerCards extends Cards {
                 description = FASHION_DESIGNER;
                 break;
             case TYPE_FASHION_DESIGN_SUPERSTAR:
-                title = FASHION_DESIGN_SUPERSTAR;
+                title = COLLEGE_DEGREE_REQUIRED;
                 description = FASHION_DESIGN_SUPERSTAR;
                 break;
             case TYPE_MUSIC_STORE_CLERK:
@@ -818,14 +811,6 @@ public class CareerCards extends Cards {
             case TYPE_WEDDING_SINGER:
                 title = TITLE_CAREER;
                 description = WEDDING_SINGER;
-                break;
-            case TYPE_INDY_ROCK_BAND:
-                title = TITLE_CAREER;
-                description = INDY_ROCK_BAND_MEMBER;
-                break;
-            case TYPE_ROCK_BAND_WITH_ONE_RECORD:
-                title = TITLE_CAREER;
-                description = ROCK_BAND_WITH_ONE_RECORD;
                 break;
             case TYPE_SOLO_ARTIST:
                 title = TITLE_CAREER;
@@ -954,10 +939,47 @@ public class CareerCards extends Cards {
     public int getMaxSalary() {
         return maxSalary;
     }
+
     public int getPayTaxes() {
         return payTaxes;
     }
     public CareerType getCareerType() {
         return careerType;
+    }
+
+    public void taxes() {
+        if(baseSalary <= 25000) {
+            payTaxes = (int)((double)(baseSalary) * .04);
+        }
+        else if(baseSalary > 25000 && baseSalary <= 50000) {
+            payTaxes = (int)((double)(baseSalary) * .06);
+        }
+        else if(baseSalary > 50000 && baseSalary <= 100000) {
+            payTaxes = (int)((double)(baseSalary) * .08);
+        }
+        else if(baseSalary > 100000 && baseSalary <= 150000) {
+            payTaxes = (int)((double)(baseSalary) * .10);
+        }
+        else if(baseSalary > 150000 && baseSalary <= 200000) {
+            payTaxes = (int)((double)(baseSalary) * .13);
+        }
+        else if(baseSalary > 200000 && baseSalary <= 300000) {
+            payTaxes = (int)((double)(baseSalary) * .15);
+        }
+        else if(baseSalary > 300000 && baseSalary <= 400000) {
+            payTaxes = (int)((double)(baseSalary) * .175);
+        }
+        else if(baseSalary > 400000 && baseSalary <= 500000) {
+            payTaxes = (int)((double)(baseSalary) * .20);
+        }
+        else if(baseSalary > 500000 && baseSalary <= 750000) {
+            payTaxes = (int)((double)(baseSalary) * .225);
+        }
+        else if(baseSalary > 750000 && baseSalary <= 1000000) {
+            payTaxes = (int)((double)(baseSalary) * .25);
+        }
+        else {
+            payTaxes = (int)((double)(baseSalary) * .30);
+        }
     }
 }
